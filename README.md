@@ -95,3 +95,64 @@ Membuat halaman login untuk memverifikasi data user berdasarkan tabel `user`.
 
 1. Import database `store2.sql` ke **phpMyAdmin**.
 2. Simpan semua file PHP dalam satu folder di direktori:
+
+
+## 🧾 Fitur 2 — Form Registrasi
+
+### 🎯 Tujuan
+Fitur ini digunakan agar **pengguna baru dapat membuat akun** di sistem.  
+Data yang diisi pada form akan disimpan ke dalam tabel `user` di database `store2`.
+
+---
+
+### 🧩 Kebutuhan Fitur
+Form registrasi terdiri dari beberapa input yang mewakili kolom di tabel `user`, yaitu:
+
+| Nama Input | Kolom Database | Keterangan |
+|-------------|----------------|-------------|
+| `username` | username | Nama pengguna untuk login |
+| `password` | password | Kata sandi (akan di-hash jika menggunakan keamanan tambahan) |
+| `nama` | nama | Nama lengkap pengguna |
+| `alamat` | alamat | Alamat tempat tinggal pengguna |
+| `hp` | hp | Nomor handphone pengguna |
+| `level` | level | Menentukan peran user dalam sistem (Admin, Kasir, atau Staf) |
+
+---
+
+### ⚙️ Ketentuan dan Alur Kerja
+1. **User membuka halaman `daftar.php`**  
+   Halaman ini berisi form untuk mendaftarkan akun baru.
+
+2. **User mengisi seluruh field dengan lengkap.**
+
+3. Setelah tombol **Daftar / Register** diklik:
+   - Data dikirim ke database `store2`, tabel `user`.
+   - Secara umum, user baru otomatis memiliki **level 3 (Staf)**, kecuali ditentukan lain.
+
+4. Jika pendaftaran berhasil:
+   - Tampilkan pesan:  
+     > “Pendaftaran berhasil! Silakan login.”
+   - Arahkan user ke halaman **`login.php`**.
+
+5. Jika username sudah digunakan:
+   - Tampilkan pesan kesalahan:  
+     > “Username sudah terdaftar, silakan gunakan username lain.”
+
+---
+
+### 🔐 Keamanan (Disarankan)
+Untuk menjaga keamanan akun, gunakan fitur hashing password:
+- **`password_hash()`** → untuk menyandikan password sebelum disimpan.  
+- **`password_verify()`** → untuk memverifikasi password saat login.
+
+> Dengan hashing, password tidak disimpan dalam bentuk teks asli, sehingga lebih aman jika database bocor.
+
+---
+
+### 🧠 Hasil Akhir
+Jika fitur ini berjalan dengan benar:
+- User baru dapat **membuat akun sendiri**.  
+- Data user tersimpan di **tabel `user`** pada **database `store2`**.  
+- Setelah registrasi, user dapat **login** dan diarahkan ke **dashboard** sesuai level-nya.
+
+---

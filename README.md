@@ -140,3 +140,7 @@ Jika fitur berjalan dengan benar:
 - Setelah registrasi, user dapat **login** dan diarahkan ke **dashboard** sesuai level-nya.  
 
 ---
+
+
+Pengumpulan :
+https://docs.google.com/forms/d/e/1FAIpQLSeTIJ977HwH_MCM_tmnloYiRCIiJmgQsr39R6DFB3CYQ9gJvw/viewform?usp=publish-editor

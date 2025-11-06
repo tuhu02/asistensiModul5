@@ -1,76 +1,78 @@
-# Challenge Asistensi Modul 5
+# 🧩 Challenge Asistensi Modul 5  
 
-##  Deskripsi Umum
-Proyek ini merupakan latihan pembuatan aplikasi **Login dan Registrasi Multi Level User** menggunakan **PHP dan MySQL**.  
-Aplikasi akan menggunakan database `store2` yang telah disediakan (`store2.sql`).
+## 📘 Deskripsi Umum  
+Proyek ini merupakan latihan untuk membuat aplikasi **Login dan Registrasi Multi Level User** menggunakan **PHP dan MySQL**.  
+Aplikasi akan menggunakan database **`store2`** yang sudah disediakan (`store2.sql`).  
 
-Setiap pengguna memiliki **role (level)** berbeda yang menentukan halaman dashboard yang diakses setelah login.
-
----
-
-##  Panduan Teknis
-
-1. Import database `store2.sql` ke **phpMyAdmin**.
-2. Simpan semua file PHP dalam satu folder di direktori:
+Setiap pengguna memiliki **role (level)** yang menentukan halaman dashboard yang diakses setelah login.  
 
 ---
 
-##  Struktur Database
+## ⚙️ Panduan Teknis  
+1. Import file database `store2.sql` ke **phpMyAdmin**.  
+2. Simpan semua file PHP dalam satu folder di direktori server (misalnya di `htdocs/store2/`).  
 
-Gunakan database **`store2`** dengan tabel utama:
-- **user**
-  - `id_user` (Primary Key)
-  - `username`
-  - `password`
-  - `nama`
-  - `alamat`
-  - `hp`
-  - `level`  
+---
 
-### Keterangan Level:
-| Level | Role  | Keterangan |
+## 🗂️ Struktur Database  
+
+Gunakan database **`store2`** dengan tabel utama:  
+
+### Tabel `user`  
+| Kolom | Keterangan |
+|--------|-------------|
+| `id_user` | Primary key |
+| `username` | Nama pengguna |
+| `password` | Kata sandi |
+| `nama` | Nama lengkap |
+| `alamat` | Alamat tempat tinggal |
+| `hp` | Nomor handphone |
+| `level` | Menentukan role user |
+
+### Keterangan Level  
+| Level | Role  | Hak Akses |
 |--------|--------|------------|
-| 1 | Admin | Memiliki akses penuh ke sistem |
+| 1 | Admin | Akses penuh ke sistem |
 | 2 | Kasir | Mengelola transaksi dan pembayaran |
 | 3 | Staf | Pengguna umum hasil pendaftaran |
 
 ---
 
-##  Fitur 1 — Form Login
+## 🔑 Fitur 1 — Form Login  
 
-### Tujuan
-Membuat halaman login untuk memverifikasi data user berdasarkan tabel `user`.
+### 🎯 Tujuan  
+Membuat halaman login untuk memverifikasi data user berdasarkan tabel `user`.  
 
-### Kebutuhan
-- Input: **username** dan **password**
-- Tombol: **Login**
+### 🧱 Komponen Form  
+- **Input:** `username` dan `password`  
+- **Tombol:** `Login`  
 
-### Ketentuan
-1. Jika username dan password cocok → tampilkan dashboard sesuai **level user**.
-2. Jika salah → tampilkan pesan:
-- Arahkan kembali ke halaman login setelah registrasi berhasil.
-
----
-
-##  Alur Program
-
-1. User membuka **login.php**
-2. Jika belum punya akun → klik link **“Daftar di sini”** menuju **daftar.php**
-3. Isi form pendaftaran → data tersimpan ke tabel `user`
-4. Login dengan username dan password yang telah dibuat
-5. Sistem mengecek level user:
- - Level 1 → **dashboard_admin.php**
- - Level 2 → **dashboard_kasir.php**
- - Level 3 → **dashboard_staf.php**
-6. Di dashboard, tampilkan ucapan sesuai role dan nama user.
+### 📋 Ketentuan  
+1. Jika username dan password cocok → arahkan ke dashboard sesuai **level user**.  
+2. Jika data salah → tampilkan pesan error.  
+3. Setelah registrasi berhasil → arahkan user kembali ke halaman login.  
 
 ---
 
-##  File yang Harus Dibuat
+## 🔄 Alur Program  
+
+1. User membuka **`login.php`**.  
+2. Jika belum punya akun, klik link **“Daftar di sini”** menuju **`daftar.php`**.  
+3. Isi form pendaftaran, lalu data tersimpan ke tabel `user`.  
+4. Login menggunakan username dan password yang sudah dibuat.  
+5. Sistem mengecek level user:  
+   - Level 1 → `dashboard_admin.php`  
+   - Level 2 → `dashboard_kasir.php`  
+   - Level 3 → `dashboard_staf.php`  
+6. Dashboard menampilkan ucapan sesuai role dan nama user.  
+
+---
+
+## 📁 File yang Harus Dibuat  
 
 | Nama File | Fungsi |
 |------------|---------|
-| `koneksi.php` | File koneksi database ke MySQL |
+| `koneksi.php` | Menghubungkan aplikasi dengan database MySQL |
 | `login.php` | Halaman login dan autentikasi user |
 | `daftar.php` | Form pendaftaran user baru |
 | `dashboard_admin.php` | Dashboard untuk admin |
@@ -79,7 +81,7 @@ Membuat halaman login untuk memverifikasi data user berdasarkan tabel `user`.
 
 ---
 
-##  Contoh Pesan Dashboard
+## 💬 Contoh Pesan Dashboard  
 
 | Role | Pesan |
 |------|--------|
@@ -89,53 +91,52 @@ Membuat halaman login untuk memverifikasi data user berdasarkan tabel `user`.
 
 ---
 
-##  Fitur 2 — Form Registrasi
+## 🧾 Fitur 2 — Form Registrasi  
 
-###  Tujuan
-Fitur ini digunakan agar **pengguna baru dapat membuat akun** di sistem.  
-Data yang diisi pada form akan disimpan ke dalam tabel `user` di database `store2`.
+### 🎯 Tujuan  
+Fitur ini memungkinkan **pengguna baru membuat akun** di sistem.  
+Data yang diisi melalui form akan disimpan di tabel `user` pada database `store2`.  
 
 ---
 
-###  Kebutuhan Fitur
-Form registrasi terdiri dari beberapa input yang mewakili kolom di tabel `user`, yaitu:
+### 🧱 Komponen Form  
+Form registrasi berisi input yang sesuai dengan kolom tabel `user`:  
 
 | Nama Input | Kolom Database | Keterangan |
 |-------------|----------------|-------------|
 | `username` | username | Nama pengguna untuk login |
 | `password` | password | Kata sandi |
 | `nama` | nama | Nama lengkap pengguna |
-| `alamat` | alamat | Alamat tempat tinggal pengguna |
-| `hp` | hp | Nomor handphone pengguna |
-| `level` | level | Menentukan peran user dalam sistem (Admin, Kasir, atau Staf) |
+| `alamat` | alamat | Alamat tempat tinggal |
+| `hp` | hp | Nomor handphone |
+| `level` | level | Peran user (Admin, Kasir, atau Staf) |
 
 ---
 
-###  Ketentuan dan Alur Kerja
-1. **User membuka halaman `daftar.php`**  
-   Halaman ini berisi form untuk mendaftarkan akun baru.
+### 📋 Ketentuan dan Alur Kerja  
 
-2. **User mengisi seluruh field dengan lengkap.**
+1. **User membuka halaman `daftar.php`.**  
+   Menampilkan form untuk mendaftarkan akun baru.  
 
-3. Setelah tombol **Daftar / Register** diklik:
-   - Data dikirim ke database `store2`, tabel `user`.
-   - Secara umum, user baru otomatis memiliki **level 3 (Staf)**, kecuali ditentukan lain.
+2. **User mengisi semua field dengan lengkap.**  
 
-4. Jika pendaftaran berhasil:
-   - Tampilkan pesan:  
-     > “Pendaftaran berhasil! Silakan login.”
-   - Arahkan user ke halaman **`login.php`**.
+3. Setelah klik tombol **Daftar / Register**:  
+   - Data dikirim dan disimpan ke tabel `user` di database `store2`.  
+   - Secara default, user baru memiliki **level 3 (Staf)**, kecuali ditentukan lain.  
 
-5. Jika username sudah digunakan:
-   - Tampilkan pesan kesalahan:  
-     > “Username sudah terdaftar, silakan gunakan username lain.”
+4. Jika pendaftaran berhasil:  
+   > “Pendaftaran berhasil! Silakan login.”  
+   Kemudian diarahkan ke **`login.php`**.  
+
+5. Jika username sudah digunakan:  
+   > “Username sudah terdaftar, silakan gunakan username lain.”  
 
 ---
 
-###  Hasil Akhir
-Jika fitur ini berjalan dengan benar:
-- User baru dapat **membuat akun sendiri**.  
-- Data user tersimpan di **tabel `user`** pada **database `store2`**.  
-- Setelah registrasi, user dapat **login** dan diarahkan ke **dashboard** sesuai level-nya.
+### ✅ Hasil Akhir  
+Jika fitur berjalan dengan benar:  
+- Pengguna baru dapat **membuat akun sendiri**.  
+- Data user tersimpan di tabel **`user`** pada database **`store2`**.  
+- Setelah registrasi, user dapat **login** dan diarahkan ke **dashboard** sesuai level-nya.  
 
 ---

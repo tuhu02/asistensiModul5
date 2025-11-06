@@ -69,7 +69,6 @@ Membuat halaman login untuk memverifikasi data user berdasarkan tabel `user`.
 | `dashboard_admin.php` | Dashboard untuk admin |
 | `dashboard_kasir.php` | Dashboard untuk kasir |
 | `dashboard_staf.php` | Dashboard untuk staf |
-| `logout.php` | Menghapus session dan kembali ke login |
 
 ---
 

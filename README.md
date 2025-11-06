@@ -8,6 +8,13 @@ Setiap pengguna memiliki **role (level)** berbeda yang menentukan halaman dashbo
 
 ---
 
+##  Panduan Teknis
+
+1. Import database `store2.sql` ke **phpMyAdmin**.
+2. Simpan semua file PHP dalam satu folder di direktori:
+
+---
+
 ##  Struktur Database
 
 Gunakan database **`store2`** dengan tabel utama:
@@ -81,12 +88,6 @@ Membuat halaman login untuk memverifikasi data user berdasarkan tabel `user`.
 | Staf | Selamat datang staf **[nama user]** |
 
 ---
-
-##  Panduan Teknis
-
-1. Import database `store2.sql` ke **phpMyAdmin**.
-2. Simpan semua file PHP dalam satu folder di direktori:
-
 
 ##  Fitur 2 — Form Registrasi
 
